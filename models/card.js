@@ -14,9 +14,11 @@ const cardSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Поле "Название" должно быть заполнено'],
   },
+  toolModel: {
+    type: String,
+  },
   toolManufacturer: {
     type: String,
-    required: [true, 'Поле "Производитель" должно быть заполнено'],
   },
   toolRegisterNo: {
     type: String,
@@ -29,28 +31,25 @@ const cardSchema = new mongoose.Schema({
   toolParameters: {
     type: String,
   },
-  toolReceiveDate: {
-    type: Date,
-    required: [true, 'Поле "Дата приёмки" должно быть заполнено'],
+  toolType: {
+    type: String,
+    required: [true, 'Поле "Тип СИ" должно быть заполнено'],
   },
   toolCheckDate: {
     type: Date,
-    required: [true, 'Поле "Дата калибровки/поверки" должно быть заполнено'],
   },
-  toolReadyDate: {
-    type: Date,
-    required: [true, 'Поле "Дата готовности" должно быть заполнено'],
-  },
-  toolReleaseDate: {
+  toolCategory: {
     type: String,
+    required: [true, 'Поле "Категория" должно быть заполнено'],
   },
   toolUsagePeriod: {
     type: String,
-    required: [true, 'Поле "МПИ" должно быть заполнено'],
   },
   toolNextCheckDate: {
     type: Date,
-    required: [true, 'Поле "Дата следующей калибровки/поверки" должно быть заполнено'],
+  },
+  toolRemainUsagePeriod: {
+    type: Number,
   },
   toolCertificateNo: {
     type: String,
@@ -59,15 +58,26 @@ const cardSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Поле "Текущее состояние" должно быть заполнено'],
   },
+  toolCalibrationStatus: {
+    type: String,
+    required: [true, 'Поле "Статус поверки/калибровки" должно быть заполнено'],
+  },
   toolCurrentLocation: {
     type: String,
   },
   toolUsageLocation: {
     type: String,
   },
+  toolInstalledLocation: {
+    type: String,
+  },
   toolOwnerDept: {
     type: String,
     required: [true, 'Поле "Отвественный департамент" должно быть заполнено'],
+  },
+  toolOwnerSection: {
+    type: String,
+    required: [true, 'Поле "Отвественный отдел" должно быть заполнено'],
   },
   toolOwnerName: {
     type: String,
@@ -75,18 +85,6 @@ const cardSchema = new mongoose.Schema({
   },
   toolCheckCompany: {
     type: String,
-  },
-  toolCheckCost: {
-    type: String,
-  },
-  toolAvailability: {
-    type: Boolean,
-  },
-  toolWorkability: {
-    type: Boolean,
-  },
-  toolDocAvailability: {
-    type: Boolean,
   },
   comment: {
     type: String,
